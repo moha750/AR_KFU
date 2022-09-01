@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل في ورشة عمل الفوتوشوب</title>
+    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<body>
+
+    <h1 class="title">الستجيل في نادي أدِيب</h1>
+
+    <form  name="google-sheet">
+        <center>
+            <div>
+                <div>
+    <label  for="الأسم الثلاثي">:الأسم الثلاثي</label> <br>
+    </div>
+    <input class="text" type="text" placeholder="أكتب أسمك هنا" name="الأسم الثلاثي" required> <br>
+    </div>
+    <div>
+        <div>
+    <label  for="رقم الجوال">:رقم الجوال</label> <br>
+    </div>
+    <input class="text" type="number" placeholder="أكتب رقم جوالك هنا" name="رقم الجوال" required> <br>
+    </div>
+    <div>
+        <div>
+    <label  for="البريد الإلكتروني">:البريد الإلكتروني</label> <br>
+    </div>
+    <input class="text" type="text" placeholder="أكتب بريدك الإلكتروني هنا" name="البريد الإلكتروني" required> <br>
+    </div>
+    <div>
+        <label  for="الكلية / القسم">:الكلية / القسم</label> <br>
+        </div>
+        <input class="text" type="text" placeholder="أكتب الكلية / القسم هنا" name="الكلية / القسم" required> <br>
+        </div>
+    <div>
+        <div>
+    <label for="هل لديك/ي خبرات سابقة؟">:هل لديك/ي خبرات سابقة؟</label> <br>
+    </div>
+    <input class="c" type="radio" name="هل لديك/ي خبرات سابقة؟" value="نعم" required> <b>لا </b> 
+    <input class="c" type="radio" name="هل لديك/ي خبرات سابقة؟" value="لا" required> <b>نعم </b> <br>
+    </div>
+    <div>
+        <div>
+    <label for="الرغبة في الأنضمام كـ؟">:الرغبة في الأنضمام كـ</label> <br>
+    </div>
+    <select required class="sel" name="الرغبة في الأنضمام كـ">
+        <option value="مصمم" >مصمم</option>
+        <option value="مصور" >مصور</option>
+        <option value="مقدم" >مقدم</option>
+        <option value="معد تقارير" >معد تقارير</option>
+        <option value="صانع محتوى" >صانع محتوى</option>
+        <option value="غير ذلك" >غير ذلك</option>
+    </select>
+    <div>
+        <label  for="اذا كانت الإجابه غير ذلك, ذكر رغبة الأنضمام">:اذا كانت الإجابه غير ذلك, ذكر رغبة الأنضمام</label> <br>
+        </div>
+        <input class="text" type="text" placeholder=" اكتب رغبة الأنضمام"  name="اذا كانت الإجابه غير ذلك, ذكر رغبة الأنضمام" > <br>
+        </div>
+    </div>
+    <button>تسجيل</button>
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxW-A28US4auX8o8ilNaEa6EJvpfw-S0Dx7-t1-HOec4UL4rSxxUAopHO3eTrOaFwcI/exec'
+        const form = document.forms['google-sheet']
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+          Swal.fire({
+  title: '!مبروك تم تسجيلك في النادي',
+  text: "سيتم التواصل معك في أقرب وقت ممكن",
+  icon: 'success',
+  confirmButtonColor: '#31a8ff',
+  confirmButtonText: 'تم'
+})
+        })
+      </script>
+
+
+
+
+</body>
+</html>
